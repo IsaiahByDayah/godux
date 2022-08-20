@@ -12,6 +12,10 @@ config_version=4
 
 config/name="godux"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godux/plugin.cfg" )
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
