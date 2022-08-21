@@ -3,23 +3,30 @@ extends Reference
 
 
 signal changed
-signal action_resolved(action)
-signal slice_registered(slice)
 
 
+var _slices := {}
 var _state := {} setget ,get_state
-var _slices := {} setget ,get_slices
+
+
+func _init(slices: Array) -> void:
+	for slice in slices:
+		_register_slice(slice)
 
 
 func get_state() -> Dictionary:
 	return _state
 
 
-func get_slices() -> Dictionary:
-	return _slices
+func subscribe(target, method):
+	connect('changed', target, method)
 
 
-func register_slice(slice: GoduxSlice) -> void:
+func unsubscribe(target, method):
+	disconnect('changed', target, method)
+
+
+func _register_slice(slice: GoduxSlice) -> void:
 	_slices[slice.name] = slice
 	_state[slice.name] = slice.initial_state
 

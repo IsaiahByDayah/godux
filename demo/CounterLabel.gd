@@ -5,7 +5,7 @@ onready var selector := GoduxSelector.new(funcref(self, "select_state"))
 
 
 func _ready() -> void:
-	selector.connect("changed", self, "render")
+	selector.subscribe(self, "render")
 	render(true)
 
 
