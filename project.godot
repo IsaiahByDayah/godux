@@ -8,9 +8,51 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "GoduxConfig",
+"language": "GDScript",
+"path": "res://addons/godux/src/config.gd"
+}, {
+"base": "Reference",
+"class": "GoduxSelector",
+"language": "GDScript",
+"path": "res://addons/godux/src/selector.gd"
+}, {
+"base": "Reference",
+"class": "GoduxSlice",
+"language": "GDScript",
+"path": "res://addons/godux/src/slice.gd"
+}, {
+"base": "Reference",
+"class": "GoduxStore",
+"language": "GDScript",
+"path": "res://addons/godux/src/store.gd"
+}, {
+"base": "Reference",
+"class": "GoduxUtils",
+"language": "GDScript",
+"path": "res://addons/godux/src/utils.gd"
+} ]
+_global_script_class_icons={
+"GoduxConfig": "",
+"GoduxSelector": "",
+"GoduxSlice": "",
+"GoduxStore": "",
+"GoduxUtils": ""
+}
+
 [application]
 
 config/name="godux"
+
+[autoload]
+
+Godux="*res://addons/godux/nodes/godux.gd"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
 
 [editor_plugins]
 

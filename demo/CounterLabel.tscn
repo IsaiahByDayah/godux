@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://demo/CounterLabel.gd" type="Script" id=1]
+
+[node name="CounterLabel" type="Label"]
+margin_right = 141.0
+margin_bottom = 14.0
+text = "Count: 0"
+align = 1
+script = ExtResource( 1 )
