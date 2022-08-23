@@ -3,10 +3,15 @@ extends Node
 
 const CONFIG: GoduxConfig = preload("res://addons/godux/config.tres")
 
+var tower: GoduxTower
 var store: GoduxStore
 
 
 func _ready() -> void:
+	# Tower setup
+	var tower = GoduxTower.new()
+	
+	# Store setup
 	var slices = load_slices()
 	store = GoduxStore.new(slices)
 	print_debug("[Godux] Initial Store: %s" % store.get_state())
