@@ -15,19 +15,29 @@ _global_script_classes=[ {
 "path": "res://addons/godux/src/config.gd"
 }, {
 "base": "Reference",
+"class": "GoduxRadio",
+"language": "GDScript",
+"path": "res://addons/godux/src/events/radio.gd"
+}, {
+"base": "Reference",
 "class": "GoduxSelector",
 "language": "GDScript",
-"path": "res://addons/godux/src/selector.gd"
+"path": "res://addons/godux/src/state/selector.gd"
 }, {
 "base": "Reference",
 "class": "GoduxSlice",
 "language": "GDScript",
-"path": "res://addons/godux/src/slice.gd"
+"path": "res://addons/godux/src/state/slice.gd"
 }, {
 "base": "Reference",
 "class": "GoduxStore",
 "language": "GDScript",
-"path": "res://addons/godux/src/store.gd"
+"path": "res://addons/godux/src/state/store.gd"
+}, {
+"base": "Reference",
+"class": "GoduxTower",
+"language": "GDScript",
+"path": "res://addons/godux/src/events/tower.gd"
 }, {
 "base": "Reference",
 "class": "GoduxUtils",
@@ -36,9 +46,11 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "GoduxConfig": "",
+"GoduxRadio": "",
 "GoduxSelector": "",
 "GoduxSlice": "",
 "GoduxStore": "",
+"GoduxTower": "",
 "GoduxUtils": ""
 }
 
