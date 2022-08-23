@@ -9,6 +9,7 @@ const ActionType = {
 
 
 func _init() -> void:
+	print_debug("[Counter Slice] ** Initializing! **")
 	name = "counter"
 	initial_state = {
 		"value": 0,
