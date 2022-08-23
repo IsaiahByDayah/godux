@@ -26,11 +26,6 @@ func unsubscribe(target, method):
 	disconnect('changed', target, method)
 
 
-func _register_slice(slice: GoduxSlice) -> void:
-	_slices[slice.name] = slice
-	_state[slice.name] = slice.initial_state
-
-
 func dispatch(action: Dictionary) -> void:
 	# Action check
 	if !action or !action.has("type") or !action.type is String:
@@ -62,8 +57,11 @@ func dispatch(action: Dictionary) -> void:
 	_state[slice_name] = new_slice_state
 	
 	emit_signal("changed")
-	
 
+
+func _register_slice(slice: GoduxSlice) -> void:
+	_slices[slice.name] = slice
+	_state[slice.name] = slice.initial_state
 
 
 
