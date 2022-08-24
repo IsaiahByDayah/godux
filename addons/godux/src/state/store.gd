@@ -2,14 +2,17 @@ class_name GoduxStore
 extends Reference
 
 
-signal changed
+const DEFAULT_CHANNEL: String = "GODUX_STORE-DEFAULT_CHANNEL"
 
 
+var _channel := DEFAULT_CHANNEL
 var _slices := {}
 var _state := {} setget ,get_state
 
 
-func _init(slices: Array) -> void:
+func _init(slices: Array, channel: String = DEFAULT_CHANNEL) -> void:
+	print("[Godux Store] ** Initializing! **")
+	_channel = channel
 	for slice in slices:
 		_register_slice(slice)
 
@@ -18,12 +21,16 @@ func get_state() -> Dictionary:
 	return _state
 
 
+func get_channel() -> String:
+	return _channel
+
+
 func subscribe(target, method):
-	connect('changed', target, method)
+	Godux.tower.listen(_channel, target, method)
 
 
 func unsubscribe(target, method):
-	disconnect('changed', target, method)
+	Godux.tower.disconnect(_channel, target, method)
 
 
 func dispatch(action: Dictionary) -> void:
@@ -56,7 +63,7 @@ func dispatch(action: Dictionary) -> void:
 	print_debug("[Godux Store] reducing new %s state..." % slice_name)
 	_state[slice_name] = new_slice_state
 	
-	emit_signal("changed")
+	Godux.tower.broadcast(_channel)
 
 
 func _register_slice(slice: GoduxSlice) -> void:

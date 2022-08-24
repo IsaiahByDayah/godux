@@ -9,7 +9,7 @@ var store: GoduxStore
 
 func _ready() -> void:
 	# Tower setup
-	var tower = GoduxTower.new()
+	tower = GoduxTower.new()
 	
 	# Store setup
 	var slices = load_slices()

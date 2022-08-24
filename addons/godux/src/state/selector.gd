@@ -5,13 +5,15 @@ extends Reference
 signal changed
 
 
+var radio: GoduxRadio
 var select_func: FuncRef
 var is_equal_func: FuncRef
 var state = null
 
 
 func _init(initial_select_func: FuncRef, is_state_equal_func: FuncRef = null) -> void:
-	Godux.store.subscribe(self, "_on_store_changed")
+	print("[Godux Selector] ** Initializing! **")
+	radio = GoduxRadio.new(Godux.store.get_channel(), self, "_on_store_message")
 	select_func = initial_select_func
 	is_equal_func = is_state_equal_func
 	state = _select()
@@ -31,7 +33,7 @@ func _select():
 	return null
 
 
-func _on_store_changed():
+func _on_store_message(_msg):
 	var new_state = _select()
 	print_debug("[Selector] store state changed...")
 	var state_changed = !deep_equal(state, new_state)
