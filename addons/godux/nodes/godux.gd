@@ -26,7 +26,7 @@ func load_slices() -> Array:
 	
 	var slices_dir = Directory.new()
 	slices_dir.open(CONFIG.slices_directory_path)
-	slices_dir.list_dir_begin(true, true)
+	slices_dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 
 	var slice_filename = slices_dir.get_next()
 	while slice_filename != "":

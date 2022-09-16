@@ -1,20 +1,20 @@
 class_name GoduxTower
-extends Reference
+extends RefCounted
 
 
-func _init() -> void:
+func _init():
 	print("[Godux Tower] ** Initializing! **")
 
 
 func listen(channel: String, target, method):
 	if !has_signal(channel):
 		add_user_signal(channel, [{ "name": "payload", "type": TYPE_DICTIONARY}])
-	connect(channel, target, method)
+	connect(channel,Callable(target,method))
 
 
-func disconnect(channel: String, target, method):
+func disconnect(channel: String,Callable(target,method)):
 	if has_signal(channel):
-		disconnect(channel, target, method)
+		disconnect(channel,Callable(target,method))
 
 
 func broadcast(channel: String, message: Dictionary = {}) -> void:

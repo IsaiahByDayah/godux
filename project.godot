@@ -6,57 +6,52 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
+config_version=5
 
-_global_script_classes=[ {
+_global_script_classes=[{
 "base": "Resource",
-"class": "GoduxConfig",
-"language": "GDScript",
+"class": &"GoduxConfig",
+"language": &"GDScript",
 "path": "res://addons/godux/src/config.gd"
 }, {
-"base": "Reference",
-"class": "GoduxRadio",
-"language": "GDScript",
+"base": "RefCounted",
+"class": &"GoduxRadio",
+"language": &"GDScript",
 "path": "res://addons/godux/src/events/radio.gd"
 }, {
-"base": "Reference",
-"class": "GoduxSelector",
-"language": "GDScript",
+"base": "RefCounted",
+"class": &"GoduxSelector",
+"language": &"GDScript",
 "path": "res://addons/godux/src/state/selector.gd"
 }, {
-"base": "Reference",
-"class": "GoduxSlice",
-"language": "GDScript",
+"base": "RefCounted",
+"class": &"GoduxSlice",
+"language": &"GDScript",
 "path": "res://addons/godux/src/state/slice.gd"
 }, {
-"base": "Reference",
-"class": "GoduxStore",
-"language": "GDScript",
+"base": "RefCounted",
+"class": &"GoduxStore",
+"language": &"GDScript",
 "path": "res://addons/godux/src/state/store.gd"
 }, {
-"base": "Reference",
-"class": "GoduxTower",
-"language": "GDScript",
-"path": "res://addons/godux/src/events/tower.gd"
-}, {
-"base": "Reference",
-"class": "GoduxUtils",
-"language": "GDScript",
+"base": "RefCounted",
+"class": &"GoduxUtils",
+"language": &"GDScript",
 "path": "res://addons/godux/src/utils.gd"
-} ]
+}]
 _global_script_class_icons={
 "GoduxConfig": "",
 "GoduxRadio": "",
 "GoduxSelector": "",
 "GoduxSlice": "",
 "GoduxStore": "",
-"GoduxTower": "",
 "GoduxUtils": ""
 }
 
 [application]
 
 config/name="godux"
+config/features=PackedStringArray("4.0")
 
 [autoload]
 
@@ -68,7 +63,7 @@ gdscript/warnings/return_value_discarded=false
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/godux/plugin.cfg" )
+enabled=PackedStringArray("res://addons/godux/plugin.cfg")
 
 [gui]
 

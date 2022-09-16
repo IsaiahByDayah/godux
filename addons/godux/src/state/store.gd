@@ -1,5 +1,5 @@
 class_name GoduxStore
-extends Reference
+extends RefCounted
 
 
 const DEFAULT_CHANNEL: String = "GODUX_STORE-DEFAULT_CHANNEL"
@@ -7,10 +7,14 @@ const DEFAULT_CHANNEL: String = "GODUX_STORE-DEFAULT_CHANNEL"
 
 var _channel := DEFAULT_CHANNEL
 var _slices := {}
-var _state := {} setget ,get_state
+var _state := {} :
+	get:
+		return _state # TODOConverter40 Copy here content of get_state 
+	set(mod_value):
+		mod_value  # TODOConverter40  Non existent set function
 
 
-func _init(slices: Array, channel: String = DEFAULT_CHANNEL) -> void:
+func _init(slices: Array,channel: String = DEFAULT_CHANNEL):
 	print("[Godux Store] ** Initializing! **")
 	_channel = channel
 	for slice in slices:
@@ -30,7 +34,7 @@ func subscribe(target, method):
 
 
 func unsubscribe(target, method):
-	Godux.tower.disconnect(_channel, target, method)
+	Godux.tower.disconnect(_channel,Callable(target,method))
 
 
 func dispatch(action: Dictionary) -> void:
@@ -51,10 +55,10 @@ func dispatch(action: Dictionary) -> void:
 	var slice_state = _state[slice_name]
 	
 	var reducer_name = type.get_slice("/", 1)
-	var reducer_ref = slice.reducers[reducer_name] as FuncRef
+	var reducer_ref = slice.reducers[reducer_name] as Callable
 	
 	# Reducer check
-	if !reducer_name or !reducer_ref or !reducer_ref is FuncRef or !reducer_ref.is_valid():
+	if !reducer_name or !reducer_ref or !reducer_ref is Callable or !reducer_ref.is_valid():
 		printerr("[Godux Store] - Invalid dispatch action: could not resolve reducer for action. %s" % action)
 		return
 	

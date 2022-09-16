@@ -1,7 +1,7 @@
 extends Label
 
 
-onready var selector := GoduxSelector.new(funcref(self, "select_state"))
+@onready var selector := GoduxSelector.new(funcref(self, "select_state"))
 
 
 func _ready() -> void:
@@ -18,11 +18,11 @@ func render(initial = false):
 	var count = selector.state
 	text = "Count: %s" % count
 	if count < 0:
-		set("modulate", Color.red)
+		set("modulate", Color.RED)
 	elif count == 0:
-		set("modulate", Color.white)
+		set("modulate", Color.WHITE)
 	else:
-		set("modulate", Color.green)
+		set("modulate", Color.GREEN)
 
 
 func select_state(state):

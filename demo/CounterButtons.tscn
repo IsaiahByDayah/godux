@@ -3,30 +3,30 @@
 [ext_resource path="res://demo/CounterButtons.gd" type="Script" id=1]
 
 [node name="CounterButtons" type="HBoxContainer"]
-margin_top = 18.0
-margin_right = 141.0
-margin_bottom = 38.0
+offset_top = 18.0
+offset_right = 141.0
+offset_bottom = 38.0
 script = ExtResource( 1 )
 
 [node name="Subtract1Button" type="Button" parent="."]
-margin_right = 25.0
-margin_bottom = 20.0
+offset_right = 25.0
+offset_bottom = 20.0
 text = "-1"
 
 [node name="Add1Button" type="Button" parent="."]
-margin_left = 29.0
-margin_right = 57.0
-margin_bottom = 20.0
+offset_left = 29.0
+offset_right = 57.0
+offset_bottom = 20.0
 text = "+1"
 
 [node name="Add5Button" type="Button" parent="."]
-margin_left = 61.0
-margin_right = 89.0
-margin_bottom = 20.0
+offset_left = 61.0
+offset_right = 89.0
+offset_bottom = 20.0
 text = "+5"
 
 [node name="ResetButton" type="Button" parent="."]
-margin_left = 93.0
-margin_right = 141.0
-margin_bottom = 20.0
+offset_left = 93.0
+offset_right = 141.0
+offset_bottom = 20.0
 text = "Reset"

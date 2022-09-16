@@ -1,4 +1,4 @@
-tool
+@tool
 extends Control
 
 
@@ -8,9 +8,9 @@ var config: GoduxConfig
 var local_config: GoduxConfig
 var changed: bool = false
 
-onready var slices_folder_file_dialog: FileDialog = $SlicesFolderFileDialog
-onready var slices_folder_line_edit: LineEdit = $VBoxContainer/HBoxContainer/LineEdit
-onready var save_button: Button = $VBoxContainer/SaveButton
+@onready var slices_folder_file_dialog: FileDialog = $SlicesFolderFileDialog
+@onready var slices_folder_line_edit: LineEdit = $VBoxContainer/HBoxContainer/LineEdit
+@onready var save_button: Button = $VBoxContainer/SaveButton
 
 
 func _ready() -> void:
@@ -45,6 +45,6 @@ func _on_SlicesFolderFileDialog_dir_selected(dir: String) -> void:
 func _on_SaveButton_pressed() -> void:
 	ResourceSaver.save(CONFIG_PATH, local_config)
 	load_config()
-	print("Slice Path: %s" % config.slices_directory_path)
+	print("Slice Path3D: %s" % config.slices_directory_path)
 	changed = false
 	set_fields()

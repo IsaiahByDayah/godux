@@ -1,5 +1,5 @@
 class_name GoduxSlice
-extends Reference
+extends RefCounted
 
 
 var name: String

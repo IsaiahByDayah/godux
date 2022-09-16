@@ -1,14 +1,14 @@
 class_name GoduxRadio
-extends Reference
+extends RefCounted
 
 
 var _channel: String
 
 var active: bool = true
-var callback: FuncRef
+var callback: Callable
 
 
-func _init(channel: String, target, method) -> void:
+func _init(channel: String,target,method):
 	print("[Godux Radio] ** Initializing! **")
 	callback = funcref(target, method)
 	Godux.tower.listen(channel, self, "_on_message")

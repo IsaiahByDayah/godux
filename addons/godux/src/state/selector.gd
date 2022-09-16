@@ -1,17 +1,17 @@
 class_name GoduxSelector
-extends Reference
+extends RefCounted
 
 
 signal changed
 
 
 var radio: GoduxRadio
-var select_func: FuncRef
-var is_equal_func: FuncRef
+var select_func: Callable
+var is_equal_func: Callable
 var state = null
 
 
-func _init(initial_select_func: FuncRef, is_state_equal_func: FuncRef = null) -> void:
+func _init(initial_select_func: Callable,is_state_equal_func: Callable = null):
 	print("[Godux Selector] ** Initializing! **")
 	radio = GoduxRadio.new(Godux.store.get_channel(), self, "_on_store_message")
 	select_func = initial_select_func
@@ -20,11 +20,11 @@ func _init(initial_select_func: FuncRef, is_state_equal_func: FuncRef = null) ->
 
 
 func subscribe(target, method):
-	connect('changed', target, method)
+	connect('changed',Callable(target,method))
 
 
 func unsubscribe(target, method):
-	disconnect('changed', target, method)
+	disconnect('changed',Callable(target,method))
 
 
 func _select():

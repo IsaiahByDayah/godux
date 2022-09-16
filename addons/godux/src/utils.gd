@@ -1,5 +1,5 @@
 class_name GoduxUtils
-extends Reference
+extends RefCounted
 
 
 
