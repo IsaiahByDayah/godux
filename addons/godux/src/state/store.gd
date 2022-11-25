@@ -10,11 +10,9 @@ var _slices := {}
 var _state := {} :
 	get:
 		return _state # TODOConverter40 Copy here content of get_state 
-	set(mod_value):
-		mod_value  # TODOConverter40  Non existent set function
 
 
-func _init(slices: Array,channel: String = DEFAULT_CHANNEL):
+func _init(slices: Array, channel: String = DEFAULT_CHANNEL):
 	print("[Godux Store] ** Initializing! **")
 	_channel = channel
 	for slice in slices:
@@ -37,12 +35,7 @@ func unsubscribe(target, method):
 	Godux.tower.disconnect(_channel,Callable(target,method))
 
 
-func dispatch(action: Dictionary) -> void:
-	# Action check
-	if !action or !action.has("type") or !action.type is String:
-		printerr("[Godux Store] - Invalid dispatch action: missing type property. %s" % action)
-		return
-	
+func dispatch(action: GoduxAction) -> void:
 	var type = action.type
 	var slice_name = type.get_slice("/", 0)
 	

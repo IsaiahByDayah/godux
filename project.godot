@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "RefCounted",
+"class": &"GoduxAction",
+"language": &"GDScript",
+"path": "res://addons/godux/src/state/action.gd"
+}, {
 "base": "Resource",
 "class": &"GoduxConfig",
 "language": &"GDScript",
@@ -35,16 +40,23 @@ _global_script_classes=[{
 "path": "res://addons/godux/src/state/store.gd"
 }, {
 "base": "RefCounted",
+"class": &"GoduxTower",
+"language": &"GDScript",
+"path": "res://addons/godux/src/events/tower.gd"
+}, {
+"base": "RefCounted",
 "class": &"GoduxUtils",
 "language": &"GDScript",
 "path": "res://addons/godux/src/utils.gd"
 }]
 _global_script_class_icons={
+"GoduxAction": "",
 "GoduxConfig": "",
 "GoduxRadio": "",
 "GoduxSelector": "",
 "GoduxSlice": "",
 "GoduxStore": "",
+"GoduxTower": "",
 "GoduxUtils": ""
 }
 

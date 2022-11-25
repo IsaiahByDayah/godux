@@ -4,14 +4,12 @@ extends RefCounted
 
 var _channel: String
 
-var active: bool = true
-var callback: Callable
+var mute: bool = false
 
 
 func _init(channel: String,target,method):
 	print("[Godux Radio] ** Initializing! **")
-	callback = funcref(target, method)
-	Godux.tower.listen(channel, self, "_on_message")
+	Godux.tower.listen(channel, self._on_message)
 
 
 func _on_message(message: Dictionary):
